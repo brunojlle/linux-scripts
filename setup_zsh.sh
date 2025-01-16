@@ -28,9 +28,14 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 echo "Adding plugins to .zshrc..."
 sed -i '/^plugins=(/ s/)/ zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc
 
-# Open the .zshrc file in the nano editor for manual adjustments
-echo "Opening .zshrc for manual adjustments (press Ctrl+X to exit after editing)..."
-nano ~/.zshrc
+# Run Anaconda initialization directly in the terminal
+echo "Activating Anaconda and initializing Conda for Zsh..."
+source /home/bruno/anaconda3/bin/activate
+conda init zsh
+
+# Reload the Zsh configuration
+echo "Reloading Zsh configuration..."
+source ~/.zshrc
 
 # Display completion message
-echo "Setup completed! Restart the terminal or run 'zsh' to start using Zsh with the installed plugins."
+echo "Setup completed! Restart the terminal or run 'zsh' to start using Zsh with the installed plugins and Anaconda."
